@@ -27,7 +27,7 @@ app.get('/messages', async (req, res) => {
     try {
         const data = await fs.readFile(messagesFile, 'utf8');
         console.log('Данные из messages.json:', data);
-        res.setHeader('Content-Type', 'application/json'); // Явно задаём JSON
+        res.setHeader('Content-Type', 'application/json');
         res.json(JSON.parse(data));
     } catch (err) {
         console.error('Ошибка чтения сообщений:', err);
@@ -57,12 +57,16 @@ app.post('/messages', async (req, res) => {
     }
 });
 
-// Обслуживание статических файлов (после маршрутов API)
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Обработка корневого маршрута
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Обслуживание статических файлов из папки public
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.listen(port, () => {
+    console.log(`Сервер запущен на http://localhost:${port}`);
 });
 
 app.listen(port, () => {
