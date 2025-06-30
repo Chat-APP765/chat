@@ -68,7 +68,3 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(port, () => {
     console.log(`Сервер запущен на http://localhost:${port}`);
 });
-
-app.listen(port, () => {
-    console.log(`Сервер запущен на http://localhost:${port}`);
-});
