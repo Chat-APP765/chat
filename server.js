@@ -8,7 +8,7 @@ const port = 3000;
 const messagesFile = path.join(__dirname, 'messages.json');
 
 // Middleware
-app.use(cors({ origin: ['https://chat-app-client.vercel.app', 'http://localhost:3000'] })); // Разрешаем Vercel и localhost
+app.use(cors({ origin: ['https://chat-jet-sigma-46.vercel.app/', 'http://localhost:3000'] })); // Замените на ваш Vercel URL
 app.use(express.json()); // Парсим JSON в теле запросов
 
 // Инициализация файла сообщений
