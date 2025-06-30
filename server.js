@@ -9,8 +9,8 @@ const messagesFile = path.join(__dirname, 'messages.json');
 
 // Middleware
 app.use(cors({ 
-    origin: ['https://chat-jet-sigma-46.vercel.app', 'http://localhost:3000'],
-    methods: ['GET', 'POST'],
+    origin: ['https://chat-j64bgmsaj-chats-projects-507087a5.vercel.app', 'http://localhost:3000'],
+    methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type']
 }));
 app.use(express.json());
@@ -71,6 +71,9 @@ app.get('/', (req, res) => {
 // Обслуживание статических файлов из папки public
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
